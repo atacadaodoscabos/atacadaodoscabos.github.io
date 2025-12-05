@@ -208,3 +208,26 @@
 
 </body>
 </html>
+<form id="whatsForm">
+  <input type="text" id="nome" placeholder="Seu nome" required>
+  <input type="text" id="telefone" placeholder="Seu telefone" required>
+  <textarea id="mensagem" id="mensagem" placeholder="Mensagem" required></textarea>
+
+  <button type="submit">Enviar no WhatsApp</button>
+</form>
+
+<script>
+  document.getElementById("whatsForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nome = document.getElementById("nome").value;
+    let telefone = document.getElementById("telefone").value;
+    let mensagem = document.getElementById("mensagem").value;
+
+    let texto = `Olá!%0A%0A*Contato do site ATACADÃO DOS CABOS LTDA.*%0A%0A*Nome:* ${nome}%0A*Telefone:* ${telefone}%0A*Mensagem:* ${mensagem}`;
+
+    let numero = "5521965792067"; // Seu número já configurado
+
+    window.open(`https://api.whatsapp.com/send?phone=${numero}&text=${texto}`);
+  });
+</script>
